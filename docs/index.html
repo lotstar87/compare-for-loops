@@ -3,7 +3,7 @@
   <div id="setting">
     <label for="repeat">Repeat Count</label>
     <input id="repeat" type="number" value=0>
-    <button onclick="compare">Compare</button>
+    <button onclick="compare()">Compare</button>
   </div>
   <div>
     <div>
@@ -60,40 +60,40 @@
     }
     
     function startFor(arr) {
-      let startTimestamp = Performance.now()
+      let startTimestamp = performance.now()
       
       for(let i = 0; i < arr.length; i ++) {}
       
-      let endTimestamp = Performance.now()
+      let endTimestamp = performance.now()
       return endTimestamp - startTimestamp
     }
     
     
     
     function startForIn() {
-      let startTimestamp = Performance.now()
+      let startTimestamp = performance.now()
       
       for(let i in arr) {}
       
-      let endTimestamp = Performance.now()
+      let endTimestamp = performance.now()
       return endTimestamp - startTimestamp
     }
     
     function startForOf() {
-      let startTimestamp = Performance.now()
+      let startTimestamp = performance.now()
       
       for(let v of arr) {}
       
-      let endTimestamp = Performance.now()
+      let endTimestamp = performance.now()
       return endTimestamp - startTimestamp
     }
     
     function startForEach() {
-      let startTimestamp = Performance.now()
+      let startTimestamp = performance.now()
       
       arr.forEach(v => v)
       
-      let endTimestamp = Performance.now()
+      let endTimestamp = performance.now()
       return endTimestamp - startTimestamp
     }
     
