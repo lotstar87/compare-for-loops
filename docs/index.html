@@ -1,3 +1,101 @@
 <body>
   <h1>Compare for loops</h1>
+  <div id="setting">
+    <label for="repeat">Repeat Count</label>
+    <input id="repeat" type="number" value=0>
+    <button onclick="compare">Compare</button>
+  </div>
+  <div>
+    <div>
+      <h6>For<h6>
+      <span id="for-disp"></span>
+    </div>
+    <div>
+      <h6>ForIn<h6>
+      <span id="for-in-disp"></span>
+    </div>
+    <div>
+      <h6>ForOf<h6>
+      <span id="for-of-disp"></span>
+    </div>
+    <div>
+      <h6>ForEach<h6>
+      <span id="for-each-disp"></span>
+    </div>
+  </div>
+  
+  <script>
+    function compare() {
+      const repeatCount = document.querySelector('#repeat').value
+      const arr = makeArray(repeatCount)
+      const tookTimes = {
+        "for": 0,
+        "forIn": 0,
+        "forOf": 0,
+        "forEach": 0
+      }
+      tookTimes.for = startFor(arr)
+      tookTimes.forIn = startForIn(arr)
+      tookTimes.forOf = startForOf(arr)
+      tookTimes.forEach = startForEach(arr)
+      
+      const forDisp = document.querySelector('#for-disp')
+      const forInDisp = document.querySelector('#for-in-disp')
+      const forOfDisp = document.querySelector('#for-of-disp')
+      const forEachDisp = document.querySelector('#for-each-disp')
+      
+      forDisp.textContent = tookTimes.for
+      forDisp.textContent = tookTimes.forIn
+      forDisp.textContent = tookTimes.forOf
+      forDisp.textContent = tookTimes.forEach
+    }
+    
+    function makeArray(length) {
+      const arr = []
+      for(let i = 0; i < length; i++) {
+        arr.push(Math.floor(Math.random() * 9))
+      }
+      
+      return arr
+    }
+    
+    function startFor(arr) {
+      let startTimestamp = Performance.now()
+      
+      for(let i = 0; i < arr.length; i ++) {}
+      
+      let endTimestamp = Performance.now()
+      return endTimestamp - startTimestamp
+    }
+    
+    
+    
+    function startForIn() {
+      let startTimestamp = Performance.now()
+      
+      for(let i in arr) {}
+      
+      let endTimestamp = Performance.now()
+      return endTimestamp - startTimestamp
+    }
+    
+    function startForOf() {
+      let startTimestamp = Performance.now()
+      
+      for(let v of arr) {}
+      
+      let endTimestamp = Performance.now()
+      return endTimestamp - startTimestamp
+    }
+    
+    function startForEach() {
+      let startTimestamp = Performance.now()
+      
+      arr.forEach(v => v)
+      
+      let endTimestamp = Performance.now()
+      return endTimestamp - startTimestamp
+    }
+    
+  </script>
 </body>
