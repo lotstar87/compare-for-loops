@@ -70,7 +70,7 @@
     
     
     
-    function startForIn() {
+    function startForIn(arr) {
       let startTimestamp = performance.now()
       
       for(let i in arr) {}
@@ -79,7 +79,7 @@
       return endTimestamp - startTimestamp
     }
     
-    function startForOf() {
+    function startForOf(arr) {
       let startTimestamp = performance.now()
       
       for(let v of arr) {}
@@ -88,7 +88,7 @@
       return endTimestamp - startTimestamp
     }
     
-    function startForEach() {
+    function startForEach(arr) {
       let startTimestamp = performance.now()
       
       arr.forEach(v => v)
